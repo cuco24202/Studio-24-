@@ -1,213 +1,333 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio 24 — Desarrollo & Dirección Operativa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #030303; /* Negro absoluto de fondo */
-        }
-        
-        /* Animación de entrada estilo Tigranz */
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Studio 24 — Tech-Editorial Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:wght@800;900&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffdad6",
+                    "surface-tint": "#c9c6c5",
+                    "surface-container-highest": "#343539",
+                    "surface-bright": "#38393d",
+                    "tertiary-fixed": "#dae1ff",
+                    "on-secondary-fixed": "#161e00",
+                    "primary-container": "#030303",
+                    "on-tertiary-fixed-variant": "#003fa4",
+                    "primary": "#c9c6c5",
+                    "secondary-fixed-dim": "#abd600",
+                    "on-surface": "#e3e2e7",
+                    "surface-variant": "#343539",
+                    "on-secondary-container": "#556d00",
+                    "on-primary": "#313030",
+                    "surface-container-low": "#1a1b1f",
+                    "tertiary-container": "#00020f",
+                    "on-primary-container": "#787676",
+                    "on-background": "#e3e2e7",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "inverse-on-surface": "#2f3034",
+                    "surface-container-lowest": "#0d0e12",
+                    "on-secondary": "#283500",
+                    "background": "#121317",
+                    "inverse-primary": "#5f5e5e",
+                    "secondary-container": "#c3f400",
+                    "on-primary-fixed": "#1c1b1b",
+                    "surface": "#121317",
+                    "secondary-fixed": "#c3f400",
+                    "on-tertiary-container": "#1e6cff",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e3e2e7",
+                    "on-tertiary": "#002b75",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "surface-container": "#1e1f23",
+                    "on-surface-variant": "#c4c7c7",
+                    "surface-dim": "#121317",
+                    "tertiary": "#b3c5ff",
+                    "on-primary-fixed-variant": "#474646",
+                    "outline-variant": "#444748",
+                    "secondary": "#ffffff",
+                    "outline": "#8e9192",
+                    "tertiary-fixed-dim": "#b3c5ff",
+                    "on-tertiary-fixed": "#001849",
+                    "surface-container-high": "#292a2e",
+                    "on-secondary-fixed-variant": "#3c4d00",
+                    "primary-fixed": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-gap": "160px",
+                    "margin-desktop": "80px",
+                    "margin-mobile": "20px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Chivo"],
+                    "technical-sm": ["JetBrains Mono"],
+                    "technical-xs": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Chivo"],
+                    "headline-lg": ["Chivo"],
+                    "display-2xl": ["Chivo"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["72px", {"lineHeight": "68px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "technical-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "technical-xs": ["10px", {"lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["48px", {"lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                    "display-2xl": ["120px", {"lineHeight": "100px", "letterSpacing": "-0.05em", "fontWeight": "900"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
         @keyframes revealUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
-        .reveal {
-            animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
+        .reveal { animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
 
-        /* Esferas de color ambientales para eliminar lo plano */
-        .glow-indigo {
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+        .glow-green { background: radial-gradient(circle, rgba(195, 244, 0, 0.15) 0%, transparent 70%); }
+        .glow-blue { background: radial-gradient(circle, rgba(30, 108, 255, 0.15) 0%, transparent 70%); }
+        
+        .active-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #c3f400;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #c3f400;
+            animation: pulse-active 2s infinite;
         }
-        .glow-emerald {
-            background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+        @keyframes pulse-active {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Tarjetas Premium Interactivas */
-        .boutique-card {
-            background: linear-gradient(180deg, rgba(15, 15, 15, 0.7) 0%, rgba(8, 8, 8, 0.9) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(12px);
+        .magnetic-pulse {
+            animation: pulse-shadow 3s infinite;
         }
+        @keyframes pulse-shadow {
+            0% { box-shadow: 0 0 0 0 rgba(195, 244, 0, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(195, 244, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(195, 244, 0, 0); }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #121317; }
+        ::-webkit-scrollbar-thumb { background: #343539; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c3f400; }
         
-        .boutique-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-6px);
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
-        }
+        html { scroll-behavior: smooth; }
+        body { background-color: #121317; cursor: default; }
     </style>
 </head>
-<body class="text-neutral-400 antialiased selection:bg-neutral-800 selection:text-white pb-32 overflow-x-hidden">
-
-    <div class="absolute top-[10%] left-[-10%] w-[600px] h-[600px] glow-indigo pointer-events-none z-0"></div>
-    <div class="absolute top-[40%] right-[-10%] w-[600px] h-[600px] glow-emerald pointer-events-none z-0"></div>
-    <div class="absolute top-[70%] left-[20%] w-[700px] h-[700px] glow-indigo pointer-events-none z-0"></div>
-
-    <header class="fixed top-0 left-0 w-full z-50 bg-[#030303]/70 backdrop-blur-md border-b border-neutral-900/60">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
-            <a href="#home" class="text-white font-extrabold tracking-tighter text-2xl reveal">STUDIO 24.</a>
-            <nav class="hidden md:flex space-x-12 text-xs uppercase tracking-widest font-semibold text-neutral-400 reveal delay-1">
-                <a href="#home" class="hover:text-white transition-colors">Inicio</a>
-                <a href="#nosotros" class="hover:text-white transition-colors">Sobre Nosotros</a>
-                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-                <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
-            </nav>
-            <div class="reveal delay-2">
-                <a href="#contacto" class="border border-neutral-800 text-xs uppercase tracking-widest px-6 py-3 hover:bg-white hover:text-black transition-all font-semibold">
-                    Iniciar Proyecto
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <section id="home" class="relative min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-[1600px] mx-auto pt-24 z-10">
-        <div class="w-full space-y-10">
-            <p class="text-xs uppercase tracking-widest text-emerald-400 font-semibold flex items-center gap-2 reveal delay-1">
-                <span class="w-2 h-2 bg-emerald-500 rounded-full inline-block animate-pulse"></span> Ingeniería Web de Alta Gama
-            </p>
-            <h1 class="text-5xl sm:text-7xl md:text-[120px] font-extrabold tracking-tighter text-white leading-[0.9] max-w-7xl reveal delay-2">
-                CREAMOS <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 via-neutral-400 to-neutral-600">PLATAFORMAS</span> QUE DEFINEN INDUSTRIAS.
-            </h1>
-            <div class="pt-6 flex flex-col md:flex-row justify-between items-start gap-8 reveal delay-3">
-                <p class="text-xl text-neutral-400 max-w-xl font-light leading-relaxed">
-                    Fusionamos dirección de arte disruptiva con arquitectura de código robusta. No creamos plantillas; estructuramos ventajas competitivas digitales.
-                </p>
-                <a href="#servicios" class="inline-flex items-center gap-3 group text-xs uppercase tracking-widest text-white border-b border-emerald-500 pb-2 hover:text-emerald-400 transition-colors">
-                    Explorar Capacidades 
-                    <i data-lucide="arrow-down" class="w-4 h-4 transition-transform group-hover:translate-y-1"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="nosotros" class="relative py-40 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900/60 z-10">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div class="md:col-span-4">
-                <p class="text-xs uppercase tracking-widest text-emerald-500 font-semibold">01 / Identidad</p>
-            </div>
-            <div class="md:col-span-8 space-y-8">
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                    Arquitectos digitales enfocados en el rendimiento operativo de tu empresa.
+<body class="bg-background text-on-background antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
+<!-- Global Background Glows -->
+<div class="fixed top-[-10%] right-[-5%] w-[600px] h-[600px] glow-green -z-10 blur-3xl pointer-events-none"></div>
+<div class="fixed bottom-[10%] left-[-10%] w-[500px] h-[500px] glow-blue -z-10 blur-3xl pointer-events-none"></div>
+<!-- Navigation -->
+<nav class="w-full fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10">
+<div class="max-w-[1440px] mx-auto flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6">
+<span class="font-display-lg text-headline-lg-mobile md:text-headline-lg tracking-tighter text-secondary">Studio 24</span>
+<div class="hidden md:flex gap-10">
+<a class="font-technical-sm text-technical-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-all duration-400 ease-out" href="#proyectos">Proyectos</a>
+<a class="font-technical-sm text-technical-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-all duration-400 ease-out" href="#servicios">Servicios</a>
+<a class="font-technical-sm text-technical-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-all duration-400 ease-out" href="#agencia">Agencia</a>
+<a class="font-technical-sm text-technical-sm uppercase tracking-widest text-secondary border-b border-secondary pb-1" href="#contacto">Contacto</a>
+</div>
+<button class="font-technical-sm text-technical-sm uppercase tracking-widest bg-secondary-fixed text-on-secondary-fixed px-6 py-2 transition-transform duration-300 scale-100 hover:scale-95">
+                Empezar
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="min-h-screen flex flex-col justify-center max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pt-24 pb-section-gap">
+<div class="reveal stagger-1 flex items-center gap-3 mb-12">
+<span class="active-dot"></span>
+<span class="font-technical-sm text-technical-sm uppercase tracking-widest text-secondary-fixed">Agencia en activo</span>
+</div>
+<h1 class="reveal stagger-2 font-display-2xl text-[64px] md:text-display-2xl leading-[0.9] text-secondary mb-16 max-w-[1200px]">
+            CREAMOS PLATAFORMAS QUE DEFINEN INDUSTRIAS
+        </h1>
+<div class="reveal stagger-3 group flex items-center gap-6 cursor-pointer w-fit">
+<div class="bg-secondary-fixed h-[1px] w-0 group-hover:w-20 transition-all duration-500 ease-in-out"></div>
+<button class="flex items-center gap-4 bg-transparent border border-white/10 px-10 py-6 hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all duration-400">
+<span class="font-technical-sm text-technical-sm uppercase tracking-widest">Inicia tu proyecto</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform duration-300">arrow_forward</span>
+</button>
+</div>
+</header>
+<!-- About Section -->
+<section class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap" id="agencia">
+<div class="grid md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-4 reveal stagger-1">
+<span class="font-technical-sm text-technical-sm uppercase tracking-widest text-secondary-fixed border border-secondary-fixed/30 px-3 py-1">Manifesto.v2</span>
+</div>
+<div class="md:col-span-8 md:col-start-5 reveal stagger-2">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary mb-12">
+                    "La mediocridad técnica es el asesino silencioso de las grandes ideas."
                 </h2>
-                <p class="text-neutral-400 font-light text-lg leading-relaxed max-w-3xl">
-                    En <span class="text-white font-semibold">Studio 24</span> entendemos que un sitio web no es un adorno visual; es la infraestructura central de tu negocio en el entorno digital. Nos especializamos en limpiar la fricción técnica, acelerar la velocidad de carga al extremo y diseñar interfaces de usuario sofisticadas que se traducen en conversión y autoridad de marca.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicios" class="relative py-40 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900/60 z-10">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-20">
-            <div>
-                <p class="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-4">02 / Soluciones</p>
-                <h3 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">NUESTRO EXPERTISE.</h3>
-            </div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div class="boutique-card md:col-span-7 p-10 flex flex-col justify-between h-[480px]">
-                <div class="flex justify-between items-start">
-                    <div class="space-y-2">
-                        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Core Engineering</span>
-                        <h4 class="text-3xl md:text-4xl font-bold text-white tracking-tighter">Desarrollo Web Full-Stack</h4>
-                    </div>
-                    <span class="text-neutral-800 font-bold text-xl">01</span>
-                </div>
-                <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-6">
-                    <p class="text-neutral-400 font-light text-sm max-w-md leading-relaxed">
-                        Código limpio, estructurado y ultrarrápido bajo frameworks modernos (React, Next.js). Creamos plataformas escalables preparadas para soportar alto tráfico comercial sin interrupciones.
+<div class="grid md:grid-cols-2 gap-12 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+<p>
+                        En Studio 24, no diseñamos para el presente. Construimos infraestructuras digitales preparadas para escalar. Cada línea de código y cada píxel está orientado a la autoridad técnica y la precisión de marca.
                     </p>
-                    <div class="border border-neutral-800 p-4 text-white bg-neutral-900/50">
-                        <i data-lucide="code-2" class="w-6 h-6 text-indigo-400"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="boutique-card md:col-span-5 p-10 flex flex-col justify-between h-[480px] md:mt-12">
-                <div class="flex justify-between items-start">
-                    <div class="space-y-2">
-                        <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest">User Experience</span>
-                        <h4 class="text-3xl font-bold text-white tracking-tighter">Dirección de Arte UI/UX</h4>
-                    </div>
-                    <span class="text-neutral-800 font-bold text-xl">02</span>
-                </div>
-                <div class="flex justify-between items-end">
-                    <p class="text-neutral-400 font-light text-sm max-w-xs leading-relaxed">
-                        Interfaces de alta gama con estética editorial. Diseñamos experiencias interactivas fluidas que cautivan al usuario desde el primer segundo.
+<p>
+                        Nuestro enfoque trasciende la estética superficial. Nos sumergimos en el núcleo de su negocio para desplegar soluciones que no solo funcionen, sino que dominen su categoría.
                     </p>
-                    <div class="border border-neutral-800 p-4 text-white bg-neutral-900/50">
-                        <i data-lucide="layers" class="w-6 h-6 text-emerald-400"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="boutique-card md:col-span-12 p-10 flex flex-col md:flex-row items-center justify-between gap-8 min-h-[180px] mt-4 border-l-2 border-l-indigo-500">
-                <div class="space-y-2 text-center md:text-left">
-                    <span class="text-xs uppercase tracking-widest text-neutral-500 font-semibold">Casos de Éxito</span>
-                    <h4 class="text-2xl text-white font-bold tracking-tight">¿Quieres ver la ingeniería en acción?</h4>
-                </div>
-                <div class="flex gap-4">
-                    <span class="bg-neutral-900 border border-neutral-800 px-4 py-2 text-xs text-neutral-400 font-mono">E-Commerce Engine</span>
-                    <span class="bg-neutral-900 border border-neutral-800 px-4 py-2 text-xs text-neutral-400 font-mono">SaaS Analytics</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="relative py-48 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900/60 z-10">
-        <div class="flex flex-col md:flex-row justify-between items-end gap-16">
-            <div class="space-y-6">
-                <p class="text-xs uppercase tracking-widest text-neutral-500 font-semibold">03 / Conversación</p>
-                <h2 class="text-6xl sm:text-7xl md:text-[110px] font-extrabold text-white tracking-tighter leading-none">HABLEMOS.</h2>
-            </div>
-            <div class="flex flex-col md:items-end gap-8 text-neutral-400 font-light">
-                <p class="text-neutral-400 font-light max-w-sm md:text-right text-lg">
-                    ¿Tienes un producto digital complejo en mente o buscas un rediseño de alto impacto? Iniciemos hoy la estrategia.
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap" id="servicios">
+<div class="mb-20 reveal">
+<span class="font-technical-xs text-technical-xs uppercase tracking-[0.3em] text-on-surface-variant mb-4 block">Capabilities // 01</span>
+<div class="h-[1px] w-full bg-white/10"></div>
+</div>
+<div class="grid md:grid-cols-12 gap-gutter">
+<!-- Service Card 1 -->
+<div class="md:col-span-7 bg-[#0A0A0A] border border-white/10 p-10 md:p-16 group hover:border-secondary-fixed transition-all duration-400 hover:-translate-y-2 reveal stagger-1">
+<div class="flex justify-between items-start mb-16">
+<span class="material-symbols-outlined text-4xl text-secondary-fixed" data-weight="fill">terminal</span>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant">01</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary mb-6">Desarrollo Web Full-Stack</h3>
+<p class="font-body-md text-on-surface-variant max-w-[400px] mb-12">
+                    Arquitecturas de alto rendimiento utilizando React, Next.js y ecosistemas Cloud nativos para una escala global.
                 </p>
-                <a href="mailto:growth@studio24.com" class="text-2xl text-white hover:text-indigo-400 transition-colors font-semibold tracking-tight border-b border-neutral-800 pb-2 hover:border-indigo-400">
-                    growth@studio24.com
-                </a>
-            </div>
-        </div>
-        <div class="pt-24 mt-24 border-t border-neutral-900/60 flex flex-col md:flex-row justify-between text-xs text-neutral-600 gap-4 uppercase tracking-widest font-mono">
-            <p>© 2026 Studio 24.</p>
-            <p>Estrategia & Código de Alta Disponibilidad.</p>
-        </div>
-    </section>
+<div class="flex flex-wrap gap-3">
+<span class="font-technical-xs text-technical-xs border border-white/20 px-3 py-1 uppercase text-on-surface-variant">TypeScript</span>
+<span class="font-technical-xs text-technical-xs border border-white/20 px-3 py-1 uppercase text-on-surface-variant">Cloud Architecture</span>
+<span class="font-technical-xs text-technical-xs border border-white/20 px-3 py-1 uppercase text-on-surface-variant">Performance</span>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="md:col-span-5 bg-[#0A0A0A] border border-white/10 p-10 md:p-16 group hover:border-secondary-fixed transition-all duration-400 hover:-translate-y-2 reveal stagger-2 md:mt-24">
+<div class="flex justify-between items-start mb-16">
+<span class="material-symbols-outlined text-4xl text-secondary-fixed" data-weight="fill">layers</span>
+<span class="font-technical-sm text-technical-sm text-on-surface-variant">02</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary mb-6">Dirección de Arte UI/UX</h3>
+<p class="font-body-md text-on-surface-variant mb-12">
+                    Interfaces que fusionan el rigor del diseño editorial con la interactividad de software premium.
+                </p>
+<div class="flex flex-wrap gap-3">
+<span class="font-technical-xs text-technical-xs border border-white/20 px-3 py-1 uppercase text-on-surface-variant">Motion</span>
+<span class="font-technical-xs text-technical-xs border border-white/20 px-3 py-1 uppercase text-on-surface-variant">Design Systems</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Anchor Section -->
+<section class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap reveal">
+<div class="relative h-[600px] overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700" data-alt="A highly detailed close-up of a futuristic computer motherboard with glowing green neon circuitry lights. The scene is shot in a dark room with dramatic shadows and sharp focus on the metallic components and light pulses. The visual style is high-tech editorial with deep blacks and vibrant electric green accents. It exudes a mood of advanced computing and immaculate technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbsuCnBy-fqjrtCAOOgIEihUZbeBJ3V1jqv07iPB9oRhL5Qqr2XGpCvjbe6_N65_aN5vny-yDO58w9sZFl1NsYj7qlffsBtsE9BH0XuLuMFIViOUg_Mf2aYCK-UOa2GIbt8r12rLp34c9-RevGCa34lKAOjkI50o-hnUzUwV1wMx4Niy5JkOAXnH9ZgTaDCQPrN_uy7QSx0hROL39PbKRGSq-1A36UL_5U3NeG5QEzdB_Ikk2qlztCJhj2ptuEu84LaiIN7jLjpU8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-16 left-16">
+<span class="font-technical-sm text-technical-sm uppercase tracking-widest text-secondary-fixed block mb-2">Internal R&amp;D</span>
+<p class="font-display-lg text-headline-lg text-secondary max-w-lg">Sistemas que respiran.</p>
+</div>
+</div>
+</section>
+<!-- Footer / Contact -->
+<footer class="w-full mt-section-gap border-t border-white/10 bg-background overflow-hidden" id="contacto">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-20 flex flex-col gap-10">
+<div class="flex flex-col gap-2 mb-10">
+<span class="font-technical-sm text-technical-sm uppercase tracking-[0.4em] text-on-surface-variant">¿Listo para elevar el estándar?</span>
+<a class="group w-fit" href="mailto:hello@studio24.tech">
+<h2 class="font-display-2xl text-[60px] md:text-[140px] leading-none tracking-tighter text-secondary hover:text-secondary-fixed transition-colors duration-400">
+                        HABLEMOS
+                    </h2>
+<div class="h-2 w-0 group-hover:w-full bg-secondary-fixed transition-all duration-500 ease-out"></div>
+</a>
+</div>
+<div class="grid md:grid-cols-4 gap-12 mt-12 border-t border-white/5 pt-12">
+<div class="col-span-1">
+<span class="font-display-lg text-display-lg tracking-tighter text-secondary">S.24</span>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<span class="font-technical-xs text-technical-xs text-on-surface-variant uppercase">Social</span>
+<div class="flex flex-col gap-2">
+<a class="font-technical-sm text-technical-sm text-secondary hover:translate-y-[-2px] transition-all duration-400" href="#">Instagram</a>
+<a class="font-technical-sm text-technical-sm text-secondary hover:translate-y-[-2px] transition-all duration-400" href="#">LinkedIn</a>
+<a class="font-technical-sm text-technical-sm text-secondary hover:translate-y-[-2px] transition-all duration-400" href="#">Behance</a>
+</div>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<span class="font-technical-xs text-technical-xs text-on-surface-variant uppercase">Ubicación</span>
+<p class="font-technical-sm text-technical-sm text-secondary">Calle Técnica 101, Hub Digital<br/>Madrid, España</p>
+</div>
+<div class="col-span-1 flex flex-col gap-4 justify-end md:items-end">
+<span class="font-technical-xs text-technical-xs text-on-surface-variant uppercase tracking-widest">© 2024 STUDIO 24 — ALL RIGHTS RESERVED</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- WhatsApp Floating Action -->
+<a class="fixed bottom-10 right-10 z-[60] group" href="https://wa.me/34000000000" target="_blank">
+<div class="relative flex items-center justify-center">
+<div class="absolute inset-0 bg-secondary-fixed/20 rounded-full magnetic-pulse"></div>
+<div class="bg-secondary-fixed text-on-secondary-fixed w-16 h-16 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-400 backdrop-blur-md">
+<span class="material-symbols-outlined text-3xl">chat_bubble</span>
+</div>
+<span class="absolute right-20 bg-background/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded font-technical-xs text-technical-xs uppercase tracking-widest text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+                Chatea con nosotros
+            </span>
+</div>
+</a>
+<script>
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-    <div class="fixed bottom-8 right-8 z-50">
-        <a href="#" class="bg-emerald-500 hover:bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 relative group">
-            <span class="absolute inset-0 rounded-full bg-emerald-500/40 animate-ping scale-110"></span>
-            <i data-lucide="message-circle" class="w-8 h-8 relative z-10"></i>
-        </a>
-    </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    entry.target.style.opacity = "1";
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-    <script>
-        lucide.createIcons();
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Magnetic hover effect simulation for the WhatsApp button
+        const btn = document.querySelector('.fixed.bottom-10.right-10');
+        if (btn) {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = `translate(0px, 0px)`;
+            });
+        }
     </script>
-</body>
-</html>
+</body></html>
