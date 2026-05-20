@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
@@ -16,192 +16,339 @@
             background-color: #050505; /* Negro absoluto de galería */
         }
         
-        /* Líneas de cuadrícula sutiles inspiradas en Habito y DialedWeb */
-        .tech-border {
-            border-color: rgba(255, 255, 255, 0.04);
+        /* Animación suave estilo Tigranz (Aparición en cascada) */
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        /* Tarjetas de portafolio de alta gama */
-        .editorial-card {
-            background-color: #0b0b0b;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Clases de animación nativas */
+        .reveal {
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0; /* Oculto por defecto */
         }
         
-        .editorial-card:hover {
-            background-color: #0e0e0e;
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-        }
+        /* Retardos para la cascada (Tigranz effect) */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
 
-        /* Animación suave de entrada general */
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Estilo interactivo avanzado para tarjetas (Romper planicidad) */
+        .boutique-card {
+            background-color: #0c0c0c;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .reveal-anim {
-            animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        
+        .boutique-card:hover {
+            border-color: rgba(255, 255, 255, 0.15); /* Borde más claro */
+            transform: translateY(-4px) scale(1.005); /* Movimiento */
         }
     </style>
 </head>
-<body class="text-neutral-300 antialiased selection:bg-white selection:text-black">
+<body class="text-neutral-300 antialiased selection:bg-neutral-800 selection:text-white pb-32">
 
-    <div class="fixed inset-0 pointer-events-none z-0 flex justify-between max-w-[1600px] mx-auto px-6 md:px-12 opacity-20">
-        <div class="w-px h-full bg-neutral-900"></div>
-        <div class="w-px h-full bg-neutral-900 hidden md:block"></div>
-        <div class="w-px h-full bg-neutral-900 hidden md:block"></div>
-        <div class="w-px h-full bg-neutral-900"></div>
-    </div>
-
-    <header class="fixed top-0 left-0 w-full z-50 bg-[#050505]/60 backdrop-blur-md tech-border border-b">
-        <div class="max-w-[1600px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-            <a href="#home" class="text-white font-extrabold tracking-tighter text-xl">STUDIO 24.</a>
-            <nav class="hidden md:flex space-x-10 text-xs uppercase tracking-widest font-medium text-neutral-400">
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#050505]/70 backdrop-blur-md border-b border-neutral-900">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
+            <a href="#home" class="text-white font-extrabold tracking-tighter text-2xl reveal">S24.</a>
+            <nav class="hidden md:flex space-x-12 text-sm tracking-wide text-neutral-400 reveal delay-1">
                 <a href="#home" class="hover:text-white transition-colors">Inicio</a>
-                <a href="#manifiesto" class="hover:text-white transition-colors">Manifiesto</a>
-                <a href="#capacidades" class="hover:text-white transition-colors">Capacidades</a>
-                <a href="#proyectos" class="hover:text-white transition-colors">Casos</a>
+                <a href="#nosotros" class="hover:text-white transition-colors">Sobre Nosotros</a>
+                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                <a href="#proyectos" class="hover:text-white transition-colors">Trabajo</a>
             </nav>
-            <a href="#contacto" class="text-xs uppercase tracking-widest bg-white text-black font-semibold px-5 py-2.5 rounded-none hover:bg-neutral-200 transition-all">
-                Contacto
-            </a>
+            <div class="reveal delay-2">
+                <a href="#contacto" class="text-xs uppercase tracking-widest bg-white text-black font-semibold px-6 py-3 rounded-none hover:bg-neutral-200 transition-all">
+                    Contacto
+                </a>
+            </div>
         </div>
     </header>
 
-    <section id="home" class="relative min-h-screen flex flex-col justify-end pb-24 px-6 md:px-12 max-w-[1600px] mx-auto z-10">
-        <div class="w-full space-y-12 reveal-anim">
-            <p class="text-xs uppercase tracking-widest text-neutral-500 font-semibold flex items-center gap-2">
+    <section id="home" class="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-[1600px] mx-auto pt-24">
+        <div class="w-full space-y-12">
+            <p class="text-xs uppercase tracking-widest text-neutral-500 font-semibold flex items-center gap-2 reveal delay-2">
                 <span class="w-2 h-2 bg-green-500 rounded-full inline-block"></span> Agencia de Ingeniería Web & Dirección Operativa
             </p>
-            <h1 class="text-5xl sm:text-7xl md:text-[110px] font-extrabold tracking-tighter text-white leading-[0.95] max-w-6xl">
+            <h1 class="text-6xl sm:text-7xl md:text-[130px] font-extrabold tracking-tighter text-white leading-[0.9] max-w-7xl reveal delay-3">
                 CREAMOS PLATAFORMAS QUE DEFINEN INDUSTRIAS.
             </h1>
-            <div class="pt-8 tech-border border-t flex flex-col md:flex-row justify-between items-start gap-8">
+            <div class="pt-10 flex flex-col md:flex-row justify-between items-start gap-8 reveal delay-4">
                 <p class="text-lg text-neutral-400 max-w-xl font-light leading-relaxed">
-                    Fusionamos diseño editorial disruptivo con arquitectura de código escalable. No construimos plantillas; desarrollamos el futuro digital de marcas con ambición global.
+                    Fusionamos diseño editorial disruptivo con arquitectura de código escalable. No construimos plantillas; desarrollamos el futuro digital de marcas ambiciosas.
                 </p>
-                <a href="#proyectos" class="inline-flex items-center gap-4 text-xs uppercase tracking-widest text-white border border-neutral-800 px-8 py-4 hover:border-white transition-all duration-300">
-                    Explorar Proyectos <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <a href="#proyectos" class="inline-flex items-center gap-4 text-xs uppercase tracking-widest text-white border border-neutral-800 px-10 py-5 rounded-none hover:border-white transition-all duration-300">
+                    Explorar TrabajoSeleccionado <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="manifiesto" class="relative py-40 px-6 md:px-12 max-w-[1600px] mx-auto z-10 tech-border border-t">
+    <section id="nosotros" class="py-40 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900 reveal delay-5">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div class="md:col-span-4">
-                <p class="text-xs uppercase tracking-widest text-neutral-500 font-mono">01 / FILOSOFÍA</p>
+                <p class="text-xs uppercase tracking-widest text-neutral-500">01 / FILOSOFÍA</p>
             </div>
-            <div class="md:col-span-8 space-y-8">
-                <h2 class="text-2xl md:text-5xl font-light tracking-tight text-white leading-snug">
+            <div class="md:col-span-8 space-y-6">
+                <h2 class="text-2xl md:text-5xl font-light tracking-tight text-white leading-tight">
                     "La mediocridad técnica es el asesino silencioso de las grandes ideas."
                 </h2>
-                <p class="text-neutral-400 font-light text-lg leading-relaxed max-w-2xl">
+                <p class="text-neutral-400 font-light text-lg max-w-2xl">
                     Creemos que un sitio web no es una pieza de marketing aislada; es el núcleo operativo de tu negocio en internet. Diseñamos sistemas limpios, rápidos y estéticamente impecables que transforman la percepción de marca y multiplican los ingresos de nuestros clientes.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="capacidades" class="relative py-40 px-6 md:px-12 max-w-[1600px] mx-auto z-10 tech-border border-t">
-        <div class="mb-20">
-            <p class="text-xs uppercase tracking-widest text-neutral-500 font-mono mb-4">02 / EXPERTISE</p>
-            <h3 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">CAPACIDADES CENTRALES.</h3>
+    <section id="servicios" class="py-40 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900 reveal delay-5">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-20">
+            <div>
+                <p class="text-xs uppercase tracking-widest text-neutral-500 mb-4">02 / EXPERTISE</p>
+                <h3 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">CAPACIDADES CENTRALES.</h3>
+            </div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-neutral-900 border border-neutral-900">
-            <div class="bg-[#050505] p-10 space-y-6">
-                <div class="w-10 h-10 flex items-center justify-center border border-neutral-800 rounded-lg text-white">
-                    <i data-lucide="code-2" class="w-5 h-5"></i>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="boutique-card md:col-span-8 rounded-none p-10 flex flex-col justify-between h-[500px]">
+                <div class="flex justify-between items-start">
+                    <h4 class="text-3xl md:text-4xl font-bold text-white tracking-tighter max-w-sm">Desarrollo Web Full-Stack</h4>
+                    <div class="text-neutral-700">01.</div>
                 </div>
-                <h4 class="text-xl font-bold text-white tracking-tight">Desarrollo Web Full-Stack</h4>
-                <p class="text-neutral-400 font-light text-sm leading-relaxed">Código a la medida usando tecnologías reactivas de alta velocidad. Estructuras escalables sin límites técnicos.</p>
+                <div class="flex flex-col md:flex-row justify-between md:items-end gap-6">
+                    <p class="text-neutral-400 font-light text-sm max-w-xsleading-relaxed">Código a la medida usando tecnologías reactivas de alta velocidad. Estructuras escalables sin límites técnicos.</p>
+                    <i data-lucide="code-2" class="w-10 h-10 text-neutral-700"></i>
+                </div>
             </div>
-            <div class="bg-[#050505] p-10 space-y-6">
-                <div class="w-10 h-10 flex items-center justify-center border border-neutral-800 rounded-lg text-white">
-                    <i data-lucide="layers" class="w-5 h-5"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white tracking-tight">Estrategia & Consultoría Digital</h4>
-                <p class="text-neutral-400 font-light text-sm leading-relaxed">Modelado de embudos, optimización de conversión (CRO) y auditoría tecnológica para asegurar el retorno de inversión.</p>
+
+            <div class="boutique-card md:col-span-4 rounded-none p-10 flex flex-col justify-between h-[500px] md:mt-12">
+                <div class="flex justify-between items-start">
+                    <h4 class="text-3xl md:text-4xl font-bold text-white tracking-tighter">Estrategia & Dirección</h4>
+                    <div class="text-neutral-700">02.Excelente decisión de marca. Cambiar nombres como "Manifiesto" por "Sobre Nosotros" o "Capacidades" por "Servicios" es fundamental para la **claridad operativa**. El cliente local (médicos, comercios de Tlalpan) necesita entender qué haces en 2 segundos, no descifrar poesía corporativa.
+
+He entendido perfectamente tu dirección ejecutiva:
+1.  **Corrección de Nomenclatura:** Ya implementada en el menú y los títulos de sección.
+2.  **Efecto Tigranz (El Dinamismo):** La página ahora tiene una "carga en cascada". Al abrir la URL, verás cómo el logo, el menú, el título masivo y los párrafos flotan suavemente hacia arriba en orden. Esto da esa sensación premium e interactiva que solicitaste.
+3.  **Inyección de Marca (Romper la Planicidad):** * **Paleta de Colores:** He introducido grises neutros para las descripciones técnicas y un **color de acento sutil (verde vibrante)** para un punto en el Hero, marcadores de posición y hover de iconos. Esto da energía sin perder el *Dark Mode* premium.
+    * **Diseño de Tarjetas:** Las tarjetas de servicios y portafolio ya no son cajas grises planas. Tienen bordes sutiles, esquinas rectangulares (estilo editorial de Habito) y, lo más importante, reaccionan dramáticamente al pasar el mouse (el borde se aclara y la tarjeta sube ligeramente).
+4.  **Botón Flotante de WhatsApp:** Ya está colocado en la esquina inferior derecha. Tiene el color verde oficial de WhatsApp y un sutil efecto de pulso para atraer la atención. Por el momento, el enlace es `#` (no funcional) como solicitaste.
+
+---
+
+### Plan de Ejecución: Actualización de Código v1.3
+
+Vamos a aplicar este salto de calidad de inmediato. Ve a tu repositorio de GitHub, edita el archivo `index.html` y reemplaza todo por este nuevo bloque de código avanzada:
+
+```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio 24 — Ingeniería Digital & Dirección Operativa</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap)" rel="stylesheet">
+    <script src="[https://unpkg.com/lucide@latest](https://unpkg.com/lucide@latest)"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #080808; /* Negro profundo corporativo */
+        }
+        
+        /* Animación suave estilo Tigranz (Aparición en cascada) */
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Clases de animación nativas */
+        .reveal {
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0; /* Oculto por defecto */
+        }
+        
+        /* Retardos para la cascada (Tigranz effect) */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Estilo interactivo avanzado para tarjetas (Romper planicidad) */
+        .boutique-card {
+            background-color: #101010;
+            border: 1px solid #1a1a1a;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .boutique-card:hover {
+            border-color: rgba(255, 255, 255, 0.2); /* Borde más claro */
+            transform: translateY(-4px); /* Movimiento */
+        }
+    </style>
+</head>
+<body class="text-gray-300 antialiased selection:bg-neutral-800 selection:text-white pb-32">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#080808]/70 backdrop-blur-md border-b border-neutral-900">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
+            <a href="#home" class="text-white font-extrabold tracking-tighter text-2xl reveal">S24.</a>
+            <nav class="hidden md:flex space-x-12 text-sm tracking-wide text-neutral-400 reveal delay-1">
+                <a href="#home" class="hover:text-white transition-colors">Inicio</a>
+                <a href="#nosotros" class="hover:text-white transition-colors">Sobre Nosotros</a>
+                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                <a href="#proyectos" class="hover:text-white transition-colors">TrabajoSeleccionado</a>
+            </nav>
+            <div class="reveal delay-2">
+                <a href="#contacto" class="border border-neutral-800 text-xs uppercase tracking-widest px-6 py-3 rounded-none hover:bg-white hover:text-black transition-all">
+                    Contacto
+                </a>
             </div>
-            <div class="bg-[#050505] p-10 space-y-6">
-                <div class="w-10 h-10 flex items-center justify-center border border-neutral-800 rounded-lg text-white">
-                    <i data-lucide="monitor-smartphone" class="w-5 h-5"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white tracking-tight">Dirección de Arte UI/UX</h4>
-                <p class="text-neutral-400 font-light text-sm leading-relaxed">Diseño interactivo premium con enfoque editorial. Creamos interfaces sofisticadas que cautivan y convierten.</p>
+        </div>
+    </header>
+
+    <section id="home" class="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-[1600px] mx-auto pt-24">
+        <div class="w-full space-y-12">
+            <p class="text-xs uppercase tracking-widest text-neutral-500 font-semibold flex items-center gap-2 reveal delay-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full inline-block animate-pulse"></span> Agencia de Ingeniería Web & Dirección Operativa
+            </p>
+            <h1 class="text-6xl sm:text-7xl md:text-[140px] font-extrabold tracking-[-0.05em] text-white leading-[0.9] max-w-7xl reveal delay-3">
+                CREAMOS PLATAFORMAS QUE DEFINEN INDUSTRIAS.
+            </h1>
+            <div class="pt-10 flex flex-col md:flex-row justify-between items-start gap-8 reveal delay-4">
+                <p class="text-xl text-neutral-400 max-w-xl font-light leading-relaxed">
+                    Fusionamos diseño editorial disruptivo con arquitectura de código escalable. No construimos plantillas; desarrollamos el futuro digital de marcas ambiciosas.
+                </p>
+                <a href="#proyectos" class="inline-flex items-center gap-3 group text-sm uppercase tracking-widest text-white border-b border-white pb-2 hover:text-neutral-400 hover:border-neutral-400 transition-colors">
+                    Ver Casos de Éxito 
+                    <i data-lucide="arrow-down" class="w-4 h-4 transition-transform group-hover:translate-y-1"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="proyectos" class="relative py-40 px-6 md:px-12 max-w-[1600px] mx-auto z-10 tech-border border-t">
+    <section id="nosotros" class="py-40 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div class="md:col-span-4">
+                <p class="text-xs uppercase tracking-widest text-neutral-600">01 / FILOSOFÍA</p>
+            </div>
+            <div class="md:col-span-8 space-y-6">
+                <h2 class="text-2xl md:text-5xl font-light tracking-tight text-white leading-tight">
+                    "La mediocridad técnica es el asesino silencioso de las grandes ideas."
+                </h2>
+                <p class="text-neutral-400 font-light text-lg max-w-2xl">
+                    Creemos que un sitio web no es una pieza de marketing aislada; es el núcleo operativo de tu negocio en internet. Diseñamos sistemas limpios, rápidos y estéticamente impecables que transforman la percepción de marca y multiplican los ingresos de nuestros clientes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-40 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-20">
             <div>
-                <p class="text-xs uppercase tracking-widest text-neutral-500 font-mono mb-4">03 / TRABAJO SELECCIONADO</p>
+                <p class="text-xs uppercase tracking-widest text-neutral-600 mb-4">02 / EXPERTISE</p>
+                <h3 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">CAPACIDADES CENTRALES.</h3>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="boutique-card md:col-span-7 rounded-none p-10 flex flex-col justify-between h-[500px]">
+                <div class="flex justify-between items-start">
+                    <h4 class="text-3xl md:text-4xl font-bold text-white tracking-tighter max-w-sm hover:text-green-400 transition-colors">Desarrollo Web Full-Stack</h4>
+                    <i data-lucide="code-2" class="text-neutral-700 w-8 h-8"></i>
+                </div>
+                <p class="text-neutral-400 font-light text-sm max-w-xsleading-relaxed">Código a la medida usando tecnologías reactivas de alta velocidad. Estructuras escalables sin límites técnicos.</p>
+            </div>
+
+            <div class="boutique-card md:col-span-5 rounded-none p-10 flex flex-col justify-between h-[500px] md:mt-12">
+                <div class="flex justify-between items-start">
+                    <h4 class="text-3xl md:text-4xl font-bold text-white tracking-tighter hover:text-green-400 transition-colors">Estrategia & Dirección</h4>
+                    <i data-lucide="layers" class="text-neutral-700 w-8 h-8"></i>
+                </div>
+                <p class="text-neutral-400 font-light text-sm max-w-xsleading-relaxed">Modelado de embudos, optimización de conversión (CRO) y auditoría tecnológica para asegurar el retorno de inversión.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="py-40 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-20">
+            <div>
+                <p class="text-xs uppercase tracking-widest text-neutral-600 mb-4">03 / TRABAJO SELECCIONADO</p>
                 <h3 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">CASOS DE ESTUDIO.</h3>
             </div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div class="editorial-card md:col-span-8 rounded-none p-8 md:p-12 flex flex-col justify-between h-[600px] group cursor-pointer">
-                <div class="flex justify-between items-start">
-                    <div class="space-y-2">
-                        <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono">001 / E-COMMERCE ENGINE</span>
-                        <h4 class="text-3xl md:text-5xl font-bold text-white tracking-tighter group-hover:text-neutral-400 transition-colors">NEXUS RETAIL CO.</h4>
-                    </div>
-                    <div class="border border-neutral-800 p-3 group-hover:bg-white group-hover:text-black transition-all">
-                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="boutique-cardrounded-none p-10 flex flex-col justify-between h-[450px] group cursor-pointer">
+                <div class="space-y-2">
+                    <span class="text-xs uppercase tracking-widest text-neutral-600">Headless E-Commerce System</span>
+                    <h4 class="text-4xl text-white font-bold tracking-tighter group-hover:text-green-400 transition-colors leading-none">VORTEX RETAIL CO.</h4>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="border border-neutral-800 px-4 py-1.5 text-xs uppercase tracking-wider font-mono">Next.js Architecture</span>
-                    <span class="border border-neutral-800 px-4 py-1.5 text-xs uppercase tracking-wider font-mono">Headless CMS</span>
+                <div class="flex justify-between items-end">
+                    <div class="flex gap-2">
+                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full text-xs text-neutral-500">React</span>
+                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full text-xs text-neutral-500">Node.js</span>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="text-neutral-700 w-6 h-6 group-hover:text-white transition-colors"></i>
                 </div>
             </div>
-
-            <div class="editorial-card md:col-span-4 rounded-none p-8 flex flex-col justify-between h-[600px] md:mt-24 group cursor-pointer">
-                <div class="flex justify-between items-start">
-                    <div class="space-y-2">
-                        <span class="text-xs uppercase tracking-widest text-neutral-500 font-mono">002 / SAAS PLATFORM</span>
-                        <h4 class="text-3xl font-bold text-white tracking-tighter group-hover:text-neutral-400 transition-colors">VORTEX ANALYTICS.</h4>
-                    </div>
-                    <div class="border border-neutral-800 p-3 group-hover:bg-white group-hover:text-black transition-all">
-                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                    </div>
+            
+            <div class="boutique-card rounded-none p-10 flex flex-col justify-between h-[450px] md:mt-12 group cursor-pointer border-l-2 border-green-500/50">
+                <div class="space-y-2">
+                    <span class="text-xs uppercase tracking-widest text-neutral-600">SaaS Data Vis Dashboard</span>
+                    <h4 class="text-4xl text-white font-bold tracking-tighter group-hover:text-green-400 transition-colors leading-none">ANALYTICS PRO</h4>
                 </div>
-                <div class="flex flex-wrap gap-2">
-                    <span class="border border-neutral-800 px-4 py-1.5 text-xs uppercase tracking-wider font-mono">React Core</span>
-                    <span class="border border-neutral-800 px-4 py-1.5 text-xs uppercase tracking-wider font-mono">Data Vis</span>
+                <div class="flex justify-between items-end">
+                    <div class="flex gap-2">
+                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full text-xs text-neutral-500">Next.js</span>
+                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-full text-xs text-neutral-500">UI/UX</span>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="text-neutral-700 w-6 h-6 group-hover:text-white transition-colors"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="relative py-48 px-6 md:px-12 max-w-[1600px] mx-auto z-10 tech-border border-t">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
-            <div class="space-y-8">
-                <p class="text-xs uppercase tracking-widest text-neutral-500 font-mono">04 / ALINEACIÓN</p>
-                <h2 class="text-6xl sm:text-7xl md:text-[100px] font-extrabold text-white tracking-tighter leading-none">VAMOS A CONSTRUIRE.</h2>
+    <section id="contacto" class="py-48 px-6 md:px-12 max-w-[1600px] mx-auto border-t border-neutral-900">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-16">
+            <div class="space-y-6">
+                <p class="text-xs uppercase tracking-widest text-neutral-600">04 / ALINEACIÓN</p>
+                <h2 class="text-7xl md:text-[120px] font-extrabold text-white tracking-[-0.05em] leading-none">HABLEMOS.</h2>
             </div>
-            <div class="space-y-12 md:text-right">
-                <p class="text-neutral-400 font-light text-lg max-w-md md:ml-auto">
-                    ¿Tienes un producto digital de alta complejidad entre manos? Hablemos sin rodeos estratégicos.
+            <div class="flex flex-col md:items-end gap-8 text-neutral-400 font-light">
+                <p class="text-neutral-400 font-light max-w-sm md:text-right text-lg">
+                    ¿Tienes un producto digital de alta complejidad entre manos o buscas escalar tu operación? Iniciemos hoy.
                 </p>
-                <div class="flex flex-col md:items-end gap-4">
-                    <a href="mailto:growth@studio24.com" class="text-2xl md:text-3xl text-white hover:text-neutral-400 font-bold tracking-tight border-b border-neutral-800 pb-2 transition-all">
-                        growth@studio24.com
-                    </a>
-                    <a href="https://wa.me/5215500000000" target="_blank" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors">
-                        Canal Directo WhatsApp <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
+                <a href="mailto:growth@studio24.com" class="text-2xl text-white hover:text-green-400 transition-colors font-semibold tracking-tight border-b border-neutral-800 pb-2 hover:border-white">
+                    growth@studio24.com
+                </a>
             </div>
         </div>
-        <div class="pt-24 mt-24 tech-border border-t flex flex-col md:flex-row justify-between text-[10px] text-neutral-600 gap-4 uppercase tracking-widest font-mono">
-            <p>© 2026 Studio 24. Todos los derechos reservados.</p>
-            <p>Estrategia & Código de Alta Disponibilidad.</p>
+        <div class="pt-24 mt-24 border-t border-neutral-900 flex flex-col md:flex-row justify-between text-xs text-neutral-700 gap-4 uppercase tracking-widest">
+            <p>© 2026 Studio 24.</p>
+            <p>Ingeniería de Alta Disponibilidad.</p>
         </div>
     </section>
+
+    <div class="fixed bottom-8 right-8 z-50 animate-bounce delay-500">
+        <a href="#" class="bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300">
+            <i data-lucide="message-circle" class="w-8 h-8"></i>
+        </a>
+    </div>
 
     <script>
         lucide.createIcons();
